@@ -180,6 +180,7 @@ namespace OLED {
             const add = tuple.split(',')
             out.push([parseInt(add[0]), parseInt(add[1])])
         }
+        console.log(out)
         return out
     }
     //% block="add text $text at|x $x|y $y|color $color"
