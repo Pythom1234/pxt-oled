@@ -180,7 +180,6 @@ namespace OLED {
             const add = tuple.split(',')
             out.push([parseInt(add[0]), parseInt(add[1])])
         }
-        console.log(out)
         return out
     }
     //% block="add text $text at|x $x|y $y|color $color"
@@ -216,7 +215,7 @@ namespace OLED {
     //% color.defl=true
     //% weight=94
     //% block.loc.cs="nakreslit čtyřúhelník na|x1 $x1|y1 $y1|x2 $x2|y2 $y2|barva $color|vyplnit $fill"
-    export function draw_rect(x1: number, y1: number, x2: number, y2: number, color: boolean, fill: boolean): void {
+    export function drawRect(x1: number, y1: number, x2: number, y2: number, color: boolean, fill: boolean): void {
         let pixels = []
         if (fill) {
             for (let x = x1; x <= x2; x++) {
@@ -254,7 +253,7 @@ namespace OLED {
     //% color.defl=true
     //% weight=93
     //% block.loc.cs="nakreslit čáru z|x1 $x1|y1 $y1|x2 $x2|y2 $y2|barva $color"
-    export function draw_line(x1: number, y1: number, x2: number, y2: number, color: boolean): void {
+    export function drawLine(x1: number, y1: number, x2: number, y2: number, color: boolean): void {
         const line = []
         const dx = Math.abs(x2 - x1)
         const dy = Math.abs(y2 - y1)
