@@ -279,4 +279,19 @@ namespace OLED {
             setPx(pixel[0], pixel[1], color)
         }
     }
+    //% block="show image|$image|x $x|y $y|color $color"
+    //% color.defl=true
+    //% weight=92
+    //% block.loc.cs="nakreslit obrázek|$image|x$x|y $y|barva $color"
+    export function drawImage(image: Image, x: number, y: number, color: boolean): void {
+        for (let img_x = 0; img_x < image.width(); img_x++) {
+            for (let img_y = 0; img_y < image.width(); img_y++) {
+                let c = image.pixel(img_x, img_y)
+                if (!color) {
+                    c = !c
+                }
+                setPx(x + img_x, y + img_y, c)
+            }
+        }
+    }
 }
