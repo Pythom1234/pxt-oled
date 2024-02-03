@@ -281,6 +281,7 @@ namespace OLED {
     }
     //% block="show image|$image|x $x|y $y|color $color|background $bg"
     //% color.defl=true
+    //% image.defl=images.createImage(`. . . . . . . . . . . . . . . . . . . . . . . . .`)
     //% weight=92
     //% block.loc.cs="nakreslit obrázek|$image|x$x|y $y|barva $color|překreslit pozadí $bg"
     export function drawImage(image: Image, x: number, y: number, color: boolean, bg: boolean): void {
