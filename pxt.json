@@ -10,7 +10,8 @@
         "main.ts",
         "README.md",
         "_locales/cs/OLED-jsdoc-strings.json",
-        "_locales/cs/OLED-strings.json"
+        "_locales/cs/OLED-strings.json",
+        "icon.png"
     ],
     "targetVersions": {
         "target": "6.0.25",
