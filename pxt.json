@@ -8,7 +8,8 @@
     },
     "files": [
         "main.ts",
-        "README.md"
+        "README.md",
+        "_locales/*"
     ],
     "targetVersions": {
         "target": "6.0.25",
