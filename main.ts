@@ -27,7 +27,6 @@ namespace OLED {
     }
     //% block="init OLED display"
     //% weight=100
-    //% block.loc.cs="inicializovat OLED display"
     export function init(): void {
         cmd1(0xAE)
         cmd1(0xA4)
@@ -58,7 +57,6 @@ namespace OLED {
     }
     //% block="draw"
     //% weight=98
-    //% block.loc.cs="vykreslit"
     export function draw(): void {
         setPos()
         screen[0] = 0x40
@@ -67,7 +65,6 @@ namespace OLED {
     //% block="clear $color"
     //% weight=99
     //% color.defl=false
-    //% block.loc.cs="vymazat barvou $color"
     export function clear(color: boolean): void {
         screen.fill((color) ? 0xFF : 0)
     }
@@ -87,7 +84,6 @@ namespace OLED {
     //% block="set pixel at x $x y $y to $color"
     //% color.defl=true
     //% weight=96
-    //% block.loc.cs="nastavit pixel na x $x y $y na barvu $color"
     export function setPx(x: number, y: number, color: boolean): void {
         const index = Math.floor(y / 8) * 128 + x + 1
         if ((index < 1025) && (x < 128) && (x > -1)) {
@@ -97,7 +93,6 @@ namespace OLED {
     //% block="add text $text at|x $x|y $y|color $color"
     //% color.defl=true
     //% weight=95
-    //% block.loc.cs="přidat text $text na|x $x|y $y|barva $color"
     export function text(text: string, x: number, y: number, color: boolean): void {
         const font = [
             "2,0 3,0 1,1 4,1 0,2 5,2 0,3 5,3 0,4 1,4 2,4 3,4 4,4 5,4 0,5 5,5 0,6 5,6 0,7 5,7",
@@ -214,7 +209,6 @@ namespace OLED {
     //% block="draw rect at|x1 $x1|y1 $y1|x2 $x2|y2 $y2|color $color|fill $fill"
     //% color.defl=true
     //% weight=94
-    //% block.loc.cs="nakreslit čtyřúhelník na|x1 $x1|y1 $y1|x2 $x2|y2 $y2|barva $color|vyplnit $fill"
     export function drawRect(x1: number, y1: number, x2: number, y2: number, color: boolean, fill: boolean): void {
         let pixels = []
         if (fill) {
@@ -240,7 +234,6 @@ namespace OLED {
     }
     //% block="invert display"
     //% weight=97
-    //% block.loc.cs="obrátit display"
     export function invert(): void {
         for (let i = 0; i <= screen.length; i++) {
             screen[i] = invertBits(screen[i])
@@ -252,7 +245,6 @@ namespace OLED {
     //% block="draw line from|x $x1|y $y1|to|x $x2|y $y2|color $color"
     //% color.defl=true
     //% weight=93
-    //% block.loc.cs="nakreslit čáru z|x1 $x1|y1 $y1|x2 $x2|y2 $y2|barva $color"
     export function drawLine(x1: number, y1: number, x2: number, y2: number, color: boolean): void {
         const line = []
         const dx = Math.abs(x2 - x1)
@@ -282,7 +274,6 @@ namespace OLED {
     //% block="show image|$image|x $x|y $y|color $color|background $bg"
     //% color.defl=true
     //% weight=92
-    //% block.loc.cs="nakreslit obrázek|$image|x$x|y $y|barva $color|překreslit pozadí $bg"
     export function drawImage(image: Image, x: number, y: number, color: boolean, bg: boolean): void {
         for (let img_x = 0; img_x < image.width(); img_x++) {
             for (let img_y = 0; img_y < image.width(); img_y++) {
