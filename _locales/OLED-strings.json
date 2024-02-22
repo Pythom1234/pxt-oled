@@ -1,0 +1,12 @@
+{
+  "OLED.clear|block": "clear $color",
+  "OLED.drawImage|block": "show image|$image|x $x|y $y|color $color|background $bg",
+  "OLED.drawLine|block": "draw line from|x $x1|y $y1|to|x $x2|y $y2|color $color",
+  "OLED.drawRect|block": "draw rect at|x1 $x1|y1 $y1|x2 $x2|y2 $y2|color $color|fill $fill",
+  "OLED.draw|block": "draw",
+  "OLED.init|block": "init OLED display",
+  "OLED.invert|block": "invert display",
+  "OLED.setPx|block": "set pixel at x $x y $y to $color",
+  "OLED.text|block": "add text $text at|x $x|y $y|color $color",
+  "{id:category}OLED": "OLED"
+}
