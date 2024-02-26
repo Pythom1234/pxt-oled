@@ -1,4 +1,4 @@
-Extension for (OLED)[https://www.elecfreaks.com/learn-en/microbitOctopus/output/octopus_ef03155.html] display control.
+Extension for [OLED](https://www.elecfreaks.com/learn-en/microbitOctopus/output/octopus_ef03155.html) display control.
 
 ## Documentation
 **\<color\>** is the color of pixel on the OLED display. The `true` means that the pixel will be on, `false` means that the pixel will be off.
