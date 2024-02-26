@@ -19,9 +19,9 @@ Extension for [OLED](https://www.elecfreaks.com/learn-en/microbitOctopus/output/
 - ### draw rect at x1 \<x1\> y1 \<y1\> x2 \<x2\> y2 \<y2\> color \<color\> fill \<fill\> (<kbd>OLED.drawRect(0, 0, 0, 0, true, false)</kbd>)
   Draws a rectangle with the upper left vertex at position \<x1> \<y1> and the lower right vertex at position \<x2> \<y2>. The \<fill> option specifies whether the rectangle will be filled with the \<color> color. If `false`, then only the outline is drawn.
 - ### draw line from x \<x1> y \<y1> to x \<x1> y \<y1> color \<color> (<kbd>OLED.drawLine(0, 0, 0, 0, true)</kbd>)
-  Draws a line from position <x1> <y1> to position <x2> <y2>.
+  Draws a line from position \<x1> \<y1> to position \<x2> \<y2>.
 - ### show image \<image> x \<x> y \<y> color \<color> background \<background> (<kbd>OLED.drawImage(null, 0, 0, true, false)</kbd>)
-  Show <image> of type Image at position <x> <y>. Fields filled in white in the image are drawn in <color> on the OLED display. The <background> determines whether fields that are not filled with white are also drawn. The **_Imageio_** library is useful for this command: [https://github.com/Pythom1234/pxt-imageio](https://github.com/Pythom1234/pxt-imageio)
+  Show \<image> of type Image at position \<x> \<y>. Fields filled in white in the image are drawn in \<color> on the OLED display. The \<background> determines whether fields that are not filled with white are also drawn. The **_Imageio_** library is useful for this command: [https://github.com/Pythom1234/pxt-imageio](https://github.com/Pythom1234/pxt-imageio)
 
 
 ## Supported targets
