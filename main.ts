@@ -276,7 +276,7 @@ namespace OLED {
     //% weight=92
     export function drawImage(image: Image, x: number, y: number, color: boolean, bg: boolean): void {
         for (let img_x = 0; img_x < image.width(); img_x++) {
-            for (let img_y = 0; img_y < image.width(); img_y++) {
+            for (let img_y = 0; img_y < image.height(); img_y++) {
                 let c = image.pixel(img_x, img_y)
                 if ((bg && !c) || (c)) {
                     if (!color) {
