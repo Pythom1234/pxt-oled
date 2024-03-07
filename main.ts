@@ -181,22 +181,15 @@ namespace OLED {
             }
             return out
         }
-        
-        const splitted_text: string[] = [];
-        for (let i = 0; i < text.length; i += 16) {
-            splitted_text.push(text.slice(i, i + 16));
-        }
-        for (const text of splitted_text) {
-            let iteration = 0
-            for (const letter of text) {
-                if (fontIndex.some(l => l === letter)) {
-                    for (const pos of getFont(fontIndex.indexOf(letter))) {
-                        setPx(x + pos[0] + (iteration * 8), y + pos[1], color)
-                    }
-                    iteration++
+
+        let iteration = 0
+        for (const letter of text) {
+            if (fontIndex.some(l => l === letter)) {
+                for (const pos of getFont(fontIndex.indexOf(letter))) {
+                    setPx(x + pos[0] + (iteration * 8), y + pos[1], color)
                 }
+                iteration++
             }
-            y += 11
         }
     }
     function invertBits(num: number): number {
