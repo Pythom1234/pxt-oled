@@ -93,7 +93,7 @@ namespace OLED {
     //% block="add text $text at|x $x|y $y|color $color"
     //% color.defl=true
     //% weight=95
-    export function text(text: string, x: number, y: number, color: boolean): void {
+    export function text(text: any, x: number, y: number, color: boolean): void {
         const font = [
             "2,0 3,0 1,1 4,1 0,2 5,2 0,3 5,3 0,4 1,4 2,4 3,4 4,4 5,4 0,5 5,5 0,6 5,6 0,7 5,7",
             "0,0 1,0 2,0 3,0 4,0 0,1 5,1 0,2 5,2 0,3 1,3 2,3 3,3 4,3 0,4 5,4 0,5 5,5 0,6 5,6 0,7 1,7 2,7 3,7 4,7",
@@ -182,13 +182,24 @@ namespace OLED {
             return out
         }
         
-        const splitted_text: string[] = [];
-        for (let i = 0; i < text.length; i += 16) {
-            splitted_text.push(text.slice(i, i + 16));
+        let txt: string = ""
+        if ((typeof text) == "string") {
+            txt = text
+        } else if ((typeof text) == "number") {
+            txt = text.toString()
+        } else if ((typeof text) == "boolean") {
+            txt = text.toString()
+        } else {
+            txt = "Object"
         }
-        for (const text of splitted_text) {
+        
+        const splitted_text: string[] = [];
+        for (let i = 0; i < txt.length; i += 16) {
+            splitted_text.push(txt.slice(i, i + 16));
+        }
+        for (const t of splitted_text) {
             let iteration = 0
-            for (const letter of text) {
+            for (const letter of t) {
                 if (fontIndex.some(l => l === letter)) {
                     for (const pos of getFont(fontIndex.indexOf(letter))) {
                         setPx(x + pos[0] + (iteration * 8), y + pos[1], color)
