@@ -90,9 +90,9 @@ namespace OLED {
             screen[index] = (color) ? showbit(screen[index], (y % 8)) : hidebit(screen[index], (y % 8))
         }
     }
-    //% block="add text $text at|x $x|y $y|color $color"
+    //% block="add text $txt at|x $x|y $y|color $color"
     //% color.defl=true
-    //% text.defl=""
+    //% txt.defl=""
     //% weight=95
     export function text(txt: any, x: number, y: number, color: boolean): void {
         const font = [
