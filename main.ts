@@ -92,7 +92,7 @@ namespace OLED {
     }
     //% block="add text $txt at|x $x|y $y|color $color"
     //% color.defl=true
-    //% txt.defl=""
+    //% txt.defl="aaa"
     //% weight=95
     export function text(txt: any, x: number, y: number, color: boolean): void {
         const font = [
