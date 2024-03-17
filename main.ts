@@ -85,7 +85,7 @@ namespace OLED {
     //% color.defl=true
     //% weight=96
     export function setPx(x: number, y: number, color: boolean): void {
-        const index = Math.floor(y / 8) * 128 + x + 1
+        const index = Math.round(Math.floor(y / 8) * 128 + x + 1)
         if ((index < 1025) && (index > -1) && (x < 128) && (x > -1) && (y > -1) && (y < 128)) {
             screen[index] = (color) ? showbit(screen[index], (y % 8)) : hidebit(screen[index], (y % 8))
         }
