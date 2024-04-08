@@ -13,6 +13,7 @@
         "_locales/cs/OLED-jsdoc-strings.json",
         "_locales/cs/OLED-strings.json"
     ],
+    "public": true,
     "targetVersions": {
         "target": "6.0.25",
         "targetId": "microbit"
@@ -20,6 +21,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj",
-    "public": true
+    "preferredEditor": "tsprj"
 }
