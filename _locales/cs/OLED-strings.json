@@ -1,12 +1,12 @@
 {
   "OLED.clear|block": "vymazat barvou $color",
-  "OLED.drawImage|block": "ukaž obrázek|$image|x $x|y $y|barva $color|překreslit pozadí $bg",
-  "OLED.drawLine|block": "nakreslit čáru z|x $x1|y $y1|na|x $x2|y $y2|barva $color",
-  "OLED.drawRect|block": "nakreslit čtyřúhelník|x1 $x1|y1 $y1|x2 $x2|y2 $y2|barva $color|vyplnit $fill",
+  "OLED.drawImage|block": "ukaž obrázek|$image|x $x|y $y|barva $color|překreslit pozadí $bg|přepnout $toggle",
+  "OLED.drawLine|block": "nakreslit čáru z|x $x1|y $y1|na|x $x2|y $y2|barva $color|přepnout $toggle",
+  "OLED.drawRect|block": "nakreslit čtyřúhelník|x1 $x1|y1 $y1|x2 $x2|y2 $y2|barva $color|vyplnit $fill|přepnout $toggle",
   "OLED.draw|block": "vykreslit",
   "OLED.init|block": "inicializovat OLED displej",
   "OLED.setPx|block": "nastavit pixel x $x y $y na barvu $color",
-  "OLED.drawText|block": "přidat text $text na|x $x|y $y|barva $color",
+  "OLED.drawText|block": "přidat text $text na|x $x|y $y|barva $color|přepnout $toggle",
   "OLED.px|block": "pixel na pozici x $x y $y",
   "OLED.togglePx|block": "přepnout pixel na pozici x $x y $y",
   "{id:category}OLED": "OLED"

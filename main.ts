@@ -79,8 +79,8 @@ namespace OLED {
         draw()
     }
     //% block="clear $color"
-    //% weight=99
     //% color.defl=false
+    //% weight=99
     export function clear(color: boolean): void {
         screen.fill((color) ? 0xFF : 0)
     }
@@ -101,29 +101,28 @@ namespace OLED {
         }
     }
     //% block="toggle pixel at x $x y $y"
-    //% color.defl=true
     //% weight=96
     export function togglePx(x: number, y: number): void {
         const index = Math.round(Math.floor(y / 8) * 128 + x + 1)
         if ((index < 1025) && (index > -1) && (x < 128) && (x > -1) && (y > -1) && (y < 128)) {
-            screen[index] = (!px(x,y)) ? showbit(screen[index], (y % 8)) : hidebit(screen[index], (y % 8))
+            screen[index] = (!px(x, y)) ? showbit(screen[index], (y % 8)) : hidebit(screen[index], (y % 8))
         }
     }
     //% block="pixel at x $x y $y"
-    //% color.defl=true
     //% weight=95
     export function px(x: number, y: number): boolean {
         const index = Math.round(Math.floor(y / 8) * 128 + x + 1)
         if ((index < 1025) && (index > -1) && (x < 128) && (x > -1) && (y > -1) && (y < 128)) {
-            return (getbit(screen[index], (y % 8)) == 1) ? true : false
+            return getbit(screen[index], (y % 8)) == 1
         } else {
             return false
         }
     }
-    //% block="add text $text at|x $x|y $y|color $color"
+    //% block="draw text $text at|x $x|y $y|color $color|toggle $toggle"
     //% color.defl=true
+    //% toggle.defl=false
     //% weight=94
-    export function drawText(text: string, x: number, y: number, color: boolean): void {
+    export function drawText(text: string, x: number, y: number, color: boolean, toggle: boolean): void {
         const font = [
             "2,0 3,0 1,1 4,1 0,2 5,2 0,3 5,3 0,4 1,4 2,4 3,4 4,4 5,4 0,5 5,5 0,6 5,6 0,7 5,7",
             "0,0 1,0 2,0 3,0 4,0 0,1 5,1 0,2 5,2 0,3 1,3 2,3 3,3 4,3 0,4 5,4 0,5 5,5 0,6 5,6 0,7 1,7 2,7 3,7 4,7",
@@ -216,16 +215,22 @@ namespace OLED {
         for (const letter of text) {
             if (fontIndex.some(l => l === letter)) {
                 for (const pos of getFont(fontIndex.indexOf(letter))) {
-                    setPx(x + pos[0] + (iteration * 8), y + pos[1], color)
+                    if (toggle) {
+                        togglePx(x + pos[0] + (iteration * 8), y + pos[1])
+                    } else {
+                        setPx(x + pos[0] + (iteration * 8), y + pos[1], color)
+                    }
                 }
                 iteration++
             }
         }
     }
-    //% block="draw rect at|x1 $x1|y1 $y1|x2 $x2|y2 $y2|color $color|fill $fill"
+    //% block="draw rect at|x1 $x1|y1 $y1|x2 $x2|y2 $y2|color $color|fill $fill|toggle $toggle"
     //% color.defl=true
+    //% fill.defl=false
+    //% toggle.defl=false
     //% weight=93
-    export function drawRect(x1: number, y1: number, x2: number, y2: number, color: boolean, fill: boolean): void {
+    export function drawRect(x1: number, y1: number, x2: number, y2: number, color: boolean, fill: boolean, toggle: boolean): void {
         let pixels = []
         if (fill) {
             for (let x = x1; x <= x2; x++) {
@@ -245,13 +250,18 @@ namespace OLED {
             }
         }
         for (const pixel of pixels) {
-            setPx(pixel[0], pixel[1], color)
+            if (toggle) {
+                togglePx(pixel[0], pixel[1])
+            } else {
+                setPx(pixel[0], pixel[1], color)
+            }
         }
     }
-    //% block="draw line from|x $x1|y $y1|to|x $x2|y $y2|color $color"
+    //% block="draw line from|x $x1|y $y1|to|x $x2|y $y2|color $color|toggle $toggle"
     //% color.defl=true
+    //% toggle.defl=false
     //% weight=92
-    export function drawLine(x1: number, y1: number, x2: number, y2: number, color: boolean): void {
+    export function drawLine(x1: number, y1: number, x2: number, y2: number, color: boolean, toggle: boolean): void {
         const line = []
         const dx = Math.abs(x2 - x1)
         const dy = Math.abs(y2 - y1)
@@ -274,13 +284,19 @@ namespace OLED {
             }
         }
         for (const pixel of line) {
-            setPx(pixel[0], pixel[1], color)
+            if (toggle) {
+                togglePx(pixel[0], pixel[1])
+            } else {
+                setPx(pixel[0], pixel[1], color)
+            }
         }
     }
-    //% block="show image|$image|x $x|y $y|color $color|background $bg"
+    //% block="show image|$image|x $x|y $y|color $color|background $bg|toggle $toggle"
     //% color.defl=true
+    //% bg.defl=false
+    //% toggle.defl=false
     //% weight=91
-    export function drawImage(image: Image, x: number, y: number, color: boolean, bg: boolean): void {
+    export function drawImage(image: Image, x: number, y: number, color: boolean, bg: boolean, toggle: boolean): void {
         for (let img_x = 0; img_x < image.width(); img_x++) {
             for (let img_y = 0; img_y < image.height(); img_y++) {
                 let c = image.pixel(img_x, img_y)
@@ -288,7 +304,11 @@ namespace OLED {
                     if (!color) {
                         c = !c
                     }
-                    setPx(x + img_x, y + img_y, c)
+                    if (toggle) {
+                        togglePx(x + img_x, y + img_y)
+                    } else {
+                        setPx(x + img_x, y + img_y, c)
+                    }
                 }
             }
         }
