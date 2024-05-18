@@ -102,8 +102,8 @@ namespace OLED {
     }
     //% block="toggle pixel at x $x y $y"
     //% color.defl=true
-    //% weight=97
-    export function togglePx(x: number, y: number, color: boolean): void {
+    //% weight=96
+    export function togglePx(x: number, y: number): void {
         const index = Math.round(Math.floor(y / 8) * 128 + x + 1)
         if ((index < 1025) && (index > -1) && (x < 128) && (x > -1) && (y > -1) && (y < 128)) {
             screen[index] = (!px(x,y)) ? showbit(screen[index], (y % 8)) : hidebit(screen[index], (y % 8))
