@@ -5,9 +5,9 @@
   "OLED.drawRect|block": "nakreslit čtyřúhelník|x1 $x1|y1 $y1|x2 $x2|y2 $y2|barva $color|vyplnit $fill",
   "OLED.draw|block": "vykreslit",
   "OLED.init|block": "inicializovat OLED displej",
-  "OLED.invert|block": "obrátit displej",
   "OLED.setPx|block": "nastavit pixel x $x y $y na barvu $color",
   "OLED.drawText|block": "přidat text $text na|x $x|y $y|barva $color",
   "OLED.px|block": "pixel na pozici x $x y $y",
+  "OLED.togglePx|block": "přepnout pixel na pozici x $x y $y",
   "{id:category}OLED": "OLED"
 }

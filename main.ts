@@ -91,23 +91,22 @@ namespace OLED {
         screen[0] = 0x40
         pins.i2cWriteBuffer(ADDR, screen, false)
     }
-    //% block="invert display"
-    //% weight=97
-    export function invert(): void {
-        for (let i = 0; i <= screen.length; i++) {
-            screen[i] = invertBits(screen[i])
-        }
-        cmd1(0xA5)
-        draw()
-        cmd1(0xA4)
-    }
     //% block="set pixel at x $x y $y to $color"
     //% color.defl=true
-    //% weight=96
+    //% weight=97
     export function setPx(x: number, y: number, color: boolean): void {
         const index = Math.round(Math.floor(y / 8) * 128 + x + 1)
         if ((index < 1025) && (index > -1) && (x < 128) && (x > -1) && (y > -1) && (y < 128)) {
             screen[index] = (color) ? showbit(screen[index], (y % 8)) : hidebit(screen[index], (y % 8))
+        }
+    }
+    //% block="toggle pixel at x $x y $y"
+    //% color.defl=true
+    //% weight=97
+    export function togglePx(x: number, y: number, color: boolean): void {
+        const index = Math.round(Math.floor(y / 8) * 128 + x + 1)
+        if ((index < 1025) && (index > -1) && (x < 128) && (x > -1) && (y > -1) && (y < 128)) {
+            screen[index] = (!px(x,y)) ? showbit(screen[index], (y % 8)) : hidebit(screen[index], (y % 8))
         }
     }
     //% block="pixel at x $x y $y"
