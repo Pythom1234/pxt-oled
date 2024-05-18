@@ -1,3 +1,5 @@
+> open this page in [app](https://pythom1234.github.io/pxt-oled/)
+
 Extension for [OLED](https://www.elecfreaks.com/learn-en/microbitOctopus/output/octopus_ef03155.html) display control.
 
 ## Documentation
