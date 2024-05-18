@@ -25,6 +25,34 @@ namespace OLED {
         buffer[3] = cmd3
         pins.i2cWriteBuffer(ADDR, buffer)
     }
+    function setPos(col: number = 0, page: number = 0) {
+        pins.i2cWriteNumber(ADDR, (0xb0 | page) % 256, NumberFormat.UInt16BE);
+        pins.i2cWriteNumber(ADDR, (0x00 | (col % 16)) % 256, NumberFormat.UInt16BE);
+        pins.i2cWriteNumber(ADDR, (0x10 | (col >> 4)) % 256, NumberFormat.UInt16BE);
+    }
+    function showbit(bit: number, shift: number): number {
+        if (bit & (1 << shift)) { }
+        else {
+            bit += 1 << shift
+        }
+        return bit
+    }
+    function hidebit(bit: number, shift: number): number {
+        if (bit & (1 << shift)) {
+            bit -= 1 << shift
+        }
+        return bit
+    }
+    function getbit(bits: number, shift: number): number {
+        return (bits >> shift) & 1;
+    }
+    function invertBits(num: number): number {
+        let invert = 1
+        for (let i = 1; i < 8; i++) {
+            invert = (invert << 1) | 1
+        }
+        return invert ^ num
+    }
     //% block="init OLED display"
     //% weight=100
     export function init(): void {
@@ -50,10 +78,11 @@ namespace OLED {
         clear(false)
         draw()
     }
-    function setPos(col: number = 0, page: number = 0) {
-        pins.i2cWriteNumber(ADDR, (0xb0 | page) % 256, NumberFormat.UInt16BE);
-        pins.i2cWriteNumber(ADDR, (0x00 | (col % 16)) % 256, NumberFormat.UInt16BE);
-        pins.i2cWriteNumber(ADDR, (0x10 | (col >> 4)) % 256, NumberFormat.UInt16BE);
+    //% block="clear $color"
+    //% weight=99
+    //% color.defl=false
+    export function clear(color: boolean): void {
+        screen.fill((color) ? 0xFF : 0)
     }
     //% block="draw"
     //% weight=98
@@ -62,24 +91,15 @@ namespace OLED {
         screen[0] = 0x40
         pins.i2cWriteBuffer(ADDR, screen, false)
     }
-    //% block="clear $color"
-    //% weight=99
-    //% color.defl=false
-    export function clear(color: boolean): void {
-        screen.fill((color) ? 0xFF : 0)
-    }
-    function showbit(bit: number, shift: number): number {
-        if (bit & (1 << shift)) { }
-        else {
-            bit += 1 << shift
+    //% block="invert display"
+    //% weight=97
+    export function invert(): void {
+        for (let i = 0; i <= screen.length; i++) {
+            screen[i] = invertBits(screen[i])
         }
-        return bit
-    }
-    function hidebit(bit: number, shift: number): number {
-        if (bit & (1 << shift)) {
-            bit -= 1 << shift
-        }
-        return bit
+        cmd1(0xA5)
+        draw()
+        cmd1(0xA4)
     }
     //% block="set pixel at x $x y $y to $color"
     //% color.defl=true
@@ -90,10 +110,21 @@ namespace OLED {
             screen[index] = (color) ? showbit(screen[index], (y % 8)) : hidebit(screen[index], (y % 8))
         }
     }
-    //% block="add text $text at|x $x|y $y|color $color"
+    //% block="pixel at x $x y $y"
     //% color.defl=true
     //% weight=95
-    export function text(text: string, x: number, y: number, color: boolean): void {
+    export function px(x: number, y: number): boolean {
+        const index = Math.round(Math.floor(y / 8) * 128 + x + 1)
+        if ((index < 1025) && (index > -1) && (x < 128) && (x > -1) && (y > -1) && (y < 128)) {
+            return (getbit(screen[index], (y % 8)) == 1) ? true : false
+        } else {
+            return false
+        }
+    }
+    //% block="add text $text at|x $x|y $y|color $color"
+    //% color.defl=true
+    //% weight=94
+    export function drawText(text: string, x: number, y: number, color: boolean): void {
         const font = [
             "2,0 3,0 1,1 4,1 0,2 5,2 0,3 5,3 0,4 1,4 2,4 3,4 4,4 5,4 0,5 5,5 0,6 5,6 0,7 5,7",
             "0,0 1,0 2,0 3,0 4,0 0,1 5,1 0,2 5,2 0,3 1,3 2,3 3,3 4,3 0,4 5,4 0,5 5,5 0,6 5,6 0,7 1,7 2,7 3,7 4,7",
@@ -192,16 +223,9 @@ namespace OLED {
             }
         }
     }
-    function invertBits(num: number): number {
-        let invert = 1
-        for (let i = 1; i < 8; i++) {
-            invert = (invert << 1) | 1
-        }
-        return invert ^ num
-    }
     //% block="draw rect at|x1 $x1|y1 $y1|x2 $x2|y2 $y2|color $color|fill $fill"
     //% color.defl=true
-    //% weight=94
+    //% weight=93
     export function drawRect(x1: number, y1: number, x2: number, y2: number, color: boolean, fill: boolean): void {
         let pixels = []
         if (fill) {
@@ -225,19 +249,9 @@ namespace OLED {
             setPx(pixel[0], pixel[1], color)
         }
     }
-    //% block="invert display"
-    //% weight=97
-    export function invert(): void {
-        for (let i = 0; i <= screen.length; i++) {
-            screen[i] = invertBits(screen[i])
-        }
-        cmd1(0xA5)
-        draw()
-        cmd1(0xA4)
-    }
     //% block="draw line from|x $x1|y $y1|to|x $x2|y $y2|color $color"
     //% color.defl=true
-    //% weight=93
+    //% weight=92
     export function drawLine(x1: number, y1: number, x2: number, y2: number, color: boolean): void {
         const line = []
         const dx = Math.abs(x2 - x1)
@@ -266,7 +280,7 @@ namespace OLED {
     }
     //% block="show image|$image|x $x|y $y|color $color|background $bg"
     //% color.defl=true
-    //% weight=92
+    //% weight=91
     export function drawImage(image: Image, x: number, y: number, color: boolean, bg: boolean): void {
         for (let img_x = 0; img_x < image.width(); img_x++) {
             for (let img_y = 0; img_y < image.height(); img_y++) {
