@@ -7,6 +7,7 @@
   "OLED.init|block": "inicializovat OLED displej",
   "OLED.invert|block": "obrátit displej",
   "OLED.setPx|block": "nastavit pixel x $x y $y na barvu $color",
-  "OLED.text|block": "přidat text $text na|x $x|y $y|barva $color",
+  "OLED.drawText|block": "přidat text $text na|x $x|y $y|barva $color",
+  "OLED.px|block": "pixel na pozici x $x y $y",
   "{id:category}OLED": "OLED"
 }
