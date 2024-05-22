@@ -9,5 +9,6 @@
   "OLED.drawText|block": "přidat text $text na|x $x|y $y|barva $color|přepnout $toggle",
   "OLED.px|block": "pixel na pozici x $x y $y",
   "OLED.togglePx|block": "přepnout pixel na pozici x $x y $y",
+  "OLED.setContrast|block": "nastavit kontrast $contrast",
   "{id:category}OLED": "OLED"
 }
