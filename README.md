@@ -22,11 +22,11 @@ Extension for [OLED](https://www.elecfreaks.com/learn-en/microbitOctopus/output/
 ### toggle pixel at x <ins>***x***</ins> y <ins>***y***</ins> (`OLED.togglePx(0, 0, true)`)
   Toggles the pixel color at position <ins>***x***</ins> <ins>***y***</ins>.
 ### pixel at x <ins>***x***</ins> y <ins>***y***</ins> (`OLED.px(0, 0, true)`)
-  Returns the pixel color at position <ins>***x***</ins> <ins>***y***.
+  Returns the pixel color at position <ins>***x***</ins> <ins>***y***</ins>.
 ### draw text <ins>***text***</ins> at x <ins>***x***</ins> y <ins>***y***</ins> color <ins>***color***</ins> toggle <ins>***toggle***</ins> (`OLED.drawText("", 0, 0, true)`)
-  Draws the text <ins>***text***, which has the upper left corner at position <ins>***x***</ins> <ins>***y***. The color of the text is determined by <ins>***color***.
+  Draws the text <ins>***text***</ins>, which has the upper left corner at position <ins>***x***</ins> <ins>***y***</ins>. The color of the text is determined by <ins>***color***</ins>.
 ### draw rect at x1 <ins>***x1***</ins> y1 <ins>***y1***</ins> x2 <ins>***x2***</ins> y2 <ins>***y2***</ins> color <ins>***color***</ins> fill <ins>***fill***</ins> toggle <ins>***toggle***</ins> (`OLED.drawRect(0, 0, 0, 0, true, false)`)
-  Draws a rectangle with the upper left vertex at position <ins>***x1*** <ins>***y1***</ins> and the lower right vertex at position <ins>***x2*** <ins>***y2***</ins>. The <ins>***fill***</ins> option specifies whether the rectangle will be filled with the <ins>***color***</ins> color. If `false`, then only the outline is drawn.
+  Draws a rectangle with the upper left vertex at position <ins>***x1***</ins> <ins>***y1***</ins> and the lower right vertex at position <ins>***x2***</ins> <ins>***y2***</ins>. The <ins>***fill***</ins> option specifies whether the rectangle will be filled with the <ins>***color***</ins> color. If `false`, then only the outline is drawn.
 ### draw line from x <ins>***x1***</ins> y <ins>***y1***</ins> to x <ins>***x1***</ins> y <ins>***y1***</ins> color <ins>***color***</ins> toggle <ins>***toggle***</ins> (`OLED.drawLine(0, 0, 0, 0, true)`)
   Draws a line from position <ins>***x1***</ins> <ins>***y1***</ins> to position <ins>***x2***</ins> <ins>***y2***.
 ### show image <ins>***image***</ins> x <ins>***x***</ins> y <ins>***y***</ins> color <ins>***color***</ins> background <ins>***background***</ins> toggle <ins>***toggle***</ins> (`OLED.drawImage(null, 0, 0, true, false)`)
