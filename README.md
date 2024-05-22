@@ -11,6 +11,8 @@ Extension for [OLED](https://www.elecfreaks.com/learn-en/microbitOctopus/output/
 
 ### init OLED display (`OLED.init()`)
   Initalize OLED display connected at address 60 (0x3C) on I2C. Must be called when the program starts.
+### set contrast <ins>***contrast***</ins> (`OLED.setContrast`)
+  Sets contrast of display (0 to 255).
 ### clear <ins>***color***</ins> (`OLED.clear(false)`)
   Fills the display with <ins>***color***.
 ### draw (`OLED.draw()`)
