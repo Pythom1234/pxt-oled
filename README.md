@@ -1,4 +1,4 @@
-> open this page in [app](https://pythom1234.github.io/pxt-oled/)
+> open this page in [GitHub Pages](https://pythom1234.github.io/pxt-oled/)
 
 Extension for [OLED](https://www.elecfreaks.com/learn-en/microbitOctopus/output/octopus_ef03155.html) display control.
 
@@ -14,7 +14,7 @@ Extension for [OLED](https://www.elecfreaks.com/learn-en/microbitOctopus/output/
 ### set contrast <ins>***contrast***</ins> (`OLED.setContrast`)
   Sets contrast of display (0 to 255).
 ### clear <ins>***color***</ins> (`OLED.clear(false)`)
-  Fills the display with <ins>***color***.
+  Fills the display with <ins>***color***</ins>.
 ### draw (`OLED.draw()`)
   Sends data to the OLED display. You have to call it whenever you want to update the display.
 ### set pixel at x <ins>***x***</ins> y <ins>***y***</ins> to <ins>***color***</ins> (`OLED.setPx(0, 0, true)`)
