@@ -54,7 +54,7 @@ namespace OLED {
         return invert ^ num
     }
     //% block="init OLED display"
-    //% weight=100
+    //% weight=101
     export function init(): void {
         cmd1(0xAE)
         cmd1(0xA4)
@@ -69,7 +69,7 @@ namespace OLED {
         cmd1(0xa0 | 0x1)
         cmd1(0xc8)
         cmd2(0xDA, 0x12)
-        cmd2(0x81, 0xCF)
+        cmd2(0x81, 0xFF)
         cmd2(0xd9, 0xF1)
         cmd2(0xDB, 0x40)
         cmd1(0xA6)
@@ -77,6 +77,14 @@ namespace OLED {
         cmd1(0xAF)
         clear(false)
         draw()
+    }
+    //% block="set contrast $contrast"
+    //% contrast.defl=255
+    //% contrast.min=0
+    //% contrast.max=255
+    //% weight=100
+    export function setContrast(contrast: number): void {
+        cmd2(0x81, contrast)
     }
     //% block="clear $color"
     //% color.defl=false
