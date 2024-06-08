@@ -303,6 +303,7 @@ namespace OLED {
     //% color.defl=true
     //% bg.defl=false
     //% toggle.defl=false
+    //% image.defl=Image
     //% weight=91
     export function drawImage(image: Image, x: number, y: number, color: boolean, bg: boolean, toggle: boolean): void {
         for (let img_x = 0; img_x < image.width(); img_x++) {
