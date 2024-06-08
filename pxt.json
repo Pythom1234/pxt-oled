@@ -5,7 +5,8 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "imageio": "github:Pythom1234/pxt-imageio"
     },
     "files": [
         "main.ts",
