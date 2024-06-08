@@ -299,18 +299,11 @@ namespace OLED {
             }
         }
     }
-    const IMAGE = imageio.createImage5x5(`
-. . . . .
-. . . . .
-. . # . .
-. . . . .
-. . . . .
-`)
     //% block="show image|$image|x $x|y $y|color $color|background $bg|toggle $toggle"
     //% color.defl=true
     //% bg.defl=false
     //% toggle.defl=false
-    //% image.defl=". . . . . . . . . . . . . . . . . . . . . . . . . "
+    //% image.defl=<Image><any>". . . . . . . . . . . . . . . . . . . . . . . . . "
     //% weight=91
     export function drawImage(image: Image, x: number, y: number, color: boolean, bg: boolean, toggle: boolean): void {
         for (let img_x = 0; img_x < image.width(); img_x++) {
