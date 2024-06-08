@@ -53,6 +53,9 @@ namespace OLED {
         }
         return invert ^ num
     }
+    /**
+     * Initialize OLED display, this command must be called at the start of the program.
+     */
     //% block="init OLED display"
     //% weight=101
     export function init(): void {
