@@ -10,7 +10,6 @@
     },
     "files": [
         "main.ts",
-        "test.ts",
         "README.md",
         "_locales/cs/OLED-jsdoc-strings.json",
         "_locales/cs/OLED-strings.json"
