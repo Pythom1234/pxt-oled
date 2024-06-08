@@ -31,6 +31,8 @@ Extension for [OLED](https://www.elecfreaks.com/learn-en/microbitOctopus/output/
   Draws a line from position <ins>***x1***</ins> <ins>***y1***</ins> to position <ins>***x2***</ins> <ins>***y2***.
 ### show image <ins>***image***</ins> x <ins>***x***</ins> y <ins>***y***</ins> color <ins>***color***</ins> background <ins>***background***</ins> toggle <ins>***toggle***</ins> (`OLED.drawImage(null, 0, 0, true, false)`)
   Show <ins>***image***</ins> of type Image at position <ins>***x***</ins> <ins>***y***</ins>. Fields filled in white in the image are drawn in <ins>***color***</ins> on the OLED display. The <ins>***background***</ins> determines whether fields that are not filled with white are also drawn. The **_Imageio_** library is useful for this command: [https://github.com/Pythom1234/pxt-imageio](https://github.com/Pythom1234/pxt-imageio)
+## License
+MIT
 
 ## Supported targets
-- for PXT/microbit
+* for PXT/microbit
