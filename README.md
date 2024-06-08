@@ -1,8 +1,6 @@
-> open this page in [GitHub Pages](https://pythom1234.github.io/pxt-oled/)
-
 Extension for [OLED](https://www.elecfreaks.com/learn-en/microbitOctopus/output/octopus_ef03155.html) display control.
-
-## Documentation
+<!--
+## Blocks
 <ins>***color***</ins> is the color of pixel on the OLED display. The `true` means that the pixel will be on, `false` means that the pixel will be off.
 
 <ins>***x***</ins> and <ins>***y***</ins> are the x and y positions. Point 0,0 is in the upper left corner of the display. The display is 128 pixels wide (x) and 64 pixels high (y). This means that <ins>***x***</ins> can be from 0 to 127 and <ins>***y***</ins> can be from 0 to 63.
@@ -31,6 +29,8 @@ Extension for [OLED](https://www.elecfreaks.com/learn-en/microbitOctopus/output/
   Draws a line from position <ins>***x1***</ins> <ins>***y1***</ins> to position <ins>***x2***</ins> <ins>***y2***.
 ### show image <ins>***image***</ins> x <ins>***x***</ins> y <ins>***y***</ins> color <ins>***color***</ins> background <ins>***background***</ins> toggle <ins>***toggle***</ins> (`OLED.drawImage(null, 0, 0, true, false)`)
   Show <ins>***image***</ins> of type Image at position <ins>***x***</ins> <ins>***y***</ins>. Fields filled in white in the image are drawn in <ins>***color***</ins> on the OLED display. The <ins>***background***</ins> determines whether fields that are not filled with white are also drawn. The **_Imageio_** library is useful for this command: [https://github.com/Pythom1234/pxt-imageio](https://github.com/Pythom1234/pxt-imageio)
+--!>
+
 ## License
 MIT
 
