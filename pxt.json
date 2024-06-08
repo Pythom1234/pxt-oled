@@ -1,7 +1,8 @@
 {
     "name": "OLED",
     "version": "2.1.1",
-    "description": "",
+    "description": "Extension for controlling OLED display",
+    "license": "MIT",
     "dependencies": {
         "core": "*",
         "microphone": "*"
@@ -13,13 +14,11 @@
         "_locales/cs/OLED-jsdoc-strings.json",
         "_locales/cs/OLED-strings.json"
     ],
+    "testFiles": [
+        "test.ts"
+    ],
     "public": true,
-    "targetVersions": {
-        "target": "6.0.28",
-        "targetId": "microbit"
-    },
     "supportedTargets": [
         "microbit"
-    ],
-    "preferredEditor": "tsprj"
+    ]
 }
