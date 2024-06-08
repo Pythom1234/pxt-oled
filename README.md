@@ -18,9 +18,9 @@ Extension for [OLED](https://www.elecfreaks.com/learn-en/microbitOctopus/output/
   Sends data to the OLED display. You have to call it whenever you want to update the display.
 ### set pixel at x <ins>***x***</ins> y <ins>***y***</ins> to <ins>***color***</ins> (`OLED.setPx(0, 0, true)`)
   Sets the pixel color at position <ins>***x***</ins> <ins>***y***</ins> to <ins>***color***</ins>.
-### toggle pixel at x <ins>***x***</ins> y <ins>***y***</ins> (`OLED.togglePx(0, 0, true)`)
+### toggle pixel at x <ins>***x***</ins> y <ins>***y***</ins> (`OLED.togglePx(0, 0)`)
   Toggles the pixel color at position <ins>***x***</ins> <ins>***y***</ins>.
-### pixel at x <ins>***x***</ins> y <ins>***y***</ins> (`OLED.px(0, 0, true)`)
+### pixel at x <ins>***x***</ins> y <ins>***y***</ins> (`OLED.px(0, 0)`)
   Returns the pixel color at position <ins>***x***</ins> <ins>***y***</ins>.
 ### draw text <ins>***text***</ins> at x <ins>***x***</ins> y <ins>***y***</ins> color <ins>***color***</ins> toggle <ins>***toggle***</ins> (`OLED.drawText("", 0, 0, true)`)
   Draws the text <ins>***text***</ins>, which has the upper left corner at position <ins>***x***</ins> <ins>***y***</ins>. The color of the text is determined by <ins>***color***</ins>.
@@ -40,22 +40,31 @@ OLED.init()
 OLED.setContrast(255)
 ```
 ```block
-OLED.clear()
+OLED.clear(false)
 ```
 ```block
-OLED.()
+OLED.draw()
 ```
 ```block
-OLED.()
+OLED.setPx(0, 0, true)
 ```
 ```block
-OLED.()
+OLED.togglePx(0, 0)
 ```
 ```block
-OLED.()
+OLED.px(0, 0)
 ```
 ```block
-OLED.()
+OLED.drawText("text", 0, 0, true, false)
+```
+```block
+OLED.drawRect(0, 0, 10, 10, true, false, false)
+```
+```block
+OLED.drawLine(0, 0, 10, 10, true, false)
+```
+```block
+OLED.drawImage(null, 0, 0, true, false, false)
 ```
 
 
