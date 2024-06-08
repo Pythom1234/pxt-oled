@@ -95,6 +95,7 @@ namespace OLED {
     }
     /*
      * Fills the display buffer with specified color.
+     * Must be called ``draw`` to show changes.
      * @param color filling color (usually ``false``)
      */
     //% block="clear $color"
