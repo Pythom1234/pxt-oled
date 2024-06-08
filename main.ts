@@ -81,6 +81,10 @@ namespace OLED {
         clear(false)
         draw()
     }
+    /*
+     * Sets the luminance level to the specified value.
+     * @param contrast luminance level eg: 255
+     */
     //% block="set contrast $contrast"
     //% contrast.defl=255
     //% contrast.min=0
@@ -89,6 +93,10 @@ namespace OLED {
     export function setContrast(contrast: number): void {
         cmd2(0x81, contrast)
     }
+    /*
+     * Fills the display buffer with specified color.
+     * @param color filling color (usually ``false``)
+     */
     //% block="clear $color"
     //% color.defl=false
     //% weight=99
