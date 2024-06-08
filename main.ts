@@ -2,13 +2,6 @@
 //% icon="\uf26c" color=#0000ff
 namespace OLED {
     const ADDR = 0x3C
-    const DEFAULT_IMAGE = imageio.createImage5x5(`
-. . . . .
-. . . . .
-. . # . .
-. . . . .
-. . . . .
-`)
     let screen = pins.createBuffer(1025)
 
     function cmd1(cmd1: number): void {
@@ -310,7 +303,7 @@ namespace OLED {
     //% color.defl=true
     //% bg.defl=false
     //% toggle.defl=false
-    //% image.defl=DEFAULT_IMAGE
+    //% image.defl=Image.Heart
     //% weight=91
     export function drawImage(image: Image, x: number, y: number, color: boolean, bg: boolean, toggle: boolean): void {
         for (let img_x = 0; img_x < image.width(); img_x++) {
