@@ -81,7 +81,7 @@ namespace OLED {
         clear(false)
         draw()
     }
-    /*
+    /**
      * Sets the luminance level to the specified value.
      * @param contrast luminance level eg: 255
      */
@@ -93,7 +93,7 @@ namespace OLED {
     export function setContrast(contrast: number): void {
         cmd2(0x81, contrast)
     }
-    /*
+    /**
      * Fills the display buffer with specified color.
      * Must be called ``draw`` to show changes.
      * @param color filling color (usually ``false``)
@@ -104,7 +104,7 @@ namespace OLED {
     export function clear(color: boolean): void {
         screen.fill((color) ? 0xFF : 0)
     }
-    /*
+    /**
      * Sends buffer to OLED display.
      * This command must be called whenever you want to show something on the OLED display.
      */
@@ -115,7 +115,7 @@ namespace OLED {
         screen[0] = 0x40
         pins.i2cWriteBuffer(ADDR, screen, false)
     }
-    /*
+    /**
      * Sets pixel at ``x`` ``y`` to color ``color``.
      * Must be called ``draw`` to show changes.
      */
