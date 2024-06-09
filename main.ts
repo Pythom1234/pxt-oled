@@ -133,6 +133,7 @@ namespace OLED {
     }
     /**
      * Toggles pixel at x y, it means that `true` will be `false` and vice versa.
+     * You need to call `draw` to see the changes.
      * @param x coordinate x (increases towards the right)
      * @param y coordinate y (increases downwards)
      */
@@ -162,6 +163,7 @@ namespace OLED {
     /**
      * Draws text with upper left corner at x y.
      * Text has fixed width (8 px).
+     * You need to call `draw` to see the changes.
      * @param text text to draw (not all characters are implemented yet)
      * @param x coordinate x of upper left corner of text (increases towards the right)
      * @param y coordinate y of upper left corner of text (increases downwards)
@@ -277,6 +279,7 @@ namespace OLED {
     }
     /**
      * Draws rectangle.
+     * You need to call `draw` to see the changes.
      * @param x1 coordinate x of upper left corner of rectangle (increases towards the right)
      * @param y1 coordinate y of upper left corner of rectangle (increases downwards)
      * @param x2 coordinate x of lower right corner of rectangle (increases towards the right)
@@ -319,6 +322,7 @@ namespace OLED {
     }
     /**
      * Draws line.
+     * You need to call `draw` to see the changes.
      * @param x1 coordinate x of start of line (increases towards the right)
      * @param y1 coordinate y of start of line (increases downwards)
      * @param x2 coordinate x of end of line (increases towards the right)
@@ -362,6 +366,7 @@ namespace OLED {
     }
     /**
      * Draws image.
+     * You need to call `draw` to see the changes.
      * @param image image to draw (can be `images.createImage()` or image from extension `imageio`)
      * @param x coordinate x of upper left corner of image (increases towards the right)
      * @param y coordinate y of upper left corner of image (increases downwards)
