@@ -46,13 +46,6 @@ namespace OLED {
     function getbit(bits: number, shift: number): number {
         return (bits >> shift) & 1;
     }
-    function invertBits(num: number): number {
-        let invert = 1
-        for (let i = 1; i < 8; i++) {
-            invert = (invert << 1) | 1
-        }
-        return invert ^ num
-    }
     /**
      * Initialize OLED display, this command must be called at the start of the program.
      */
@@ -296,29 +289,31 @@ namespace OLED {
     //% toggle.defl=false
     //% weight=93
     export function drawRect(x1: number, y1: number, x2: number, y2: number, color: boolean, fill: boolean, toggle: boolean): void {
-        let pixels = []
         if (fill) {
             for (let x = x1; x <= x2; x++) {
                 for (let y = y1; y <= y2; y++) {
-                    pixels.push([x, y])
+                    if (toggle) {
+                        togglePx(x, y)
+                    } else {
+                        setPx(x, y, color)
+                    }
                 }
             }
         }
         else {
             for (let x = x1; x <= x2; x++) {
-                pixels.push([x, y1])
-                pixels.push([x, y2])
+                if (toggle) {
+                    togglePx(x, y1)
+                } else {
+                    setPx(x, y1, color)
+                }
             }
             for (let y = y1 + 1; y < y2; y++) {
-                pixels.push([x1, y])
-                pixels.push([x2, y])
-            }
-        }
-        for (const pixel of pixels) {
-            if (toggle) {
-                togglePx(pixel[0], pixel[1])
-            } else {
-                setPx(pixel[0], pixel[1], color)
+                if (toggle) {
+                    togglePx(x1, y)
+                } else {
+                    setPx(x1, y, color)
+                }
             }
         }
     }
