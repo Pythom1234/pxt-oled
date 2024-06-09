@@ -83,7 +83,7 @@ namespace OLED {
     }
     /**
      * Sets the luminance level to the specified value.
-     * @param contrast luminance level eg: 255
+     * @param contrast luminance level, eg: 255
      */
     //% block="set contrast $contrast"
     //% contrast.defl=255
