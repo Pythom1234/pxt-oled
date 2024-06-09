@@ -95,7 +95,7 @@ namespace OLED {
     }
     /**
      * Fills the display buffer with specified color.
-     * Must be called ``draw`` to show changes.
+     * You need to call ``draw'' to see the changes.
      * @param color filling color (usually ``false``)
      */
     //% block="clear $color"
@@ -117,7 +117,7 @@ namespace OLED {
     }
     /**
      * Sets pixel at ``x`` ``y`` to color ``color``.
-     * Must be called ``draw`` to show changes.
+     * You need to call ``draw'' to see the changes.
      */
     //% block="set pixel at x $x y $y to $color"
     //% color.defl=true
