@@ -162,7 +162,12 @@ namespace OLED {
     /**
      * Draws text with upper left corner at x y.
      * Text has fixed width (8 px).
-     * @param text text to draw ()
+     * @param text text to draw (not all characters are implemented yet)
+     * @param x coordinate x of upper left corner of text (increases towards the right)
+     * @param y coordinate y of upper left corner of text (increases downwards)
+     * @param color color of text
+     * @param toggle sets whether to use pixel switching instead of setting the pixel to a specific color (if `true`, `color` means nothing)
+     */
     //% block="draw text $text at|x $x|y $y|color $color|toggle $toggle"
     //% color.defl=true
     //% toggle.defl=false
@@ -270,6 +275,16 @@ namespace OLED {
             }
         }
     }
+    /**
+     * Draws rectangle.
+     * @param x1 coordinate x of upper left corner of rectangle (increases towards the right)
+     * @param y1 coordinate y of upper left corner of rectangle (increases downwards)
+     * @param x2 coordinate x of lower right corner of rectangle (increases towards the right)
+     * @param y2 coordinate y of lower right corner of rectangle (increases downwards)
+     * @param color color of rectangle
+     * @param fill sets whether only the outline or also the fill of the rectangle is drawn
+     * @param toggle sets whether to use pixel switching instead of setting the pixel to a specific color (if `true`, `color` means nothing)
+     */
     //% block="draw rect at|x1 $x1|y1 $y1|x2 $x2|y2 $y2|color $color|fill $fill|toggle $toggle"
     //% color.defl=true
     //% fill.defl=false
@@ -302,6 +317,15 @@ namespace OLED {
             }
         }
     }
+    /**
+     * Draws line.
+     * @param x1 coordinate x of start of line (increases towards the right)
+     * @param y1 coordinate y of start of line (increases downwards)
+     * @param x2 coordinate x of end of line (increases towards the right)
+     * @param y2 coordinate y of end of line (increases downwards)
+     * @param color color of line
+     * @param toggle sets whether to use pixel switching instead of setting the pixel to a specific color (if `true`, `color` means nothing)
+     */
     //% block="draw line from|x $x1|y $y1|to|x $x2|y $y2|color $color|toggle $toggle"
     //% color.defl=true
     //% toggle.defl=false
@@ -336,6 +360,15 @@ namespace OLED {
             }
         }
     }
+    /**
+     * Draws image.
+     * @param image image to draw (can be `images.createImage()` or image from extension `imageio`)
+     * @param x coordinate x of upper left corner of image (increases towards the right)
+     * @param y coordinate y of upper left corner of image (increases downwards)
+     * @param color color of image (if `true`, pixel `true` in image will be drawn as `true`)
+     * @param bg sets whether empty pixels of the image are drawn (drawn with `not color`)
+     * @param toggle sets whether to use pixel switching instead of setting the pixel to a specific color (if `true`, `color` means nothing)
+     */
     //% block="show image|$image|x $x|y $y|color $color|background $bg|toggle $toggle"
     //% color.defl=true
     //% bg.defl=false
