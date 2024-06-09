@@ -95,8 +95,8 @@ namespace OLED {
     }
     /**
      * Fills the display buffer with specified color.
-     * You need to call ``draw'' to see the changes.
-     * @param color filling color (usually ``false``)
+     * You need to call `draw` to see the changes.
+     * @param color filling color (usually `false`)
      */
     //% block="clear $color"
     //% color.defl=false
@@ -116,8 +116,11 @@ namespace OLED {
         pins.i2cWriteBuffer(ADDR, screen, false)
     }
     /**
-     * Sets pixel at ``x`` ``y`` to color ``color``.
-     * You need to call ``draw'' to see the changes.
+     * Sets pixel at x y to specified color color.
+     * You need to call `draw` to see the changes.
+     * @param x coordinate x (increases towards the right)
+     * @param y coordinate y (increases downwards)
+     * @param color color of pixel
      */
     //% block="set pixel at x $x y $y to $color"
     //% color.defl=true
@@ -128,6 +131,11 @@ namespace OLED {
             screen[index] = (color) ? showbit(screen[index], (y % 8)) : hidebit(screen[index], (y % 8))
         }
     }
+    /**
+     * Toggles pixel at x y, it means that `true` will be `false` and vice versa.
+     * @param x coordinate x (increases towards the right)
+     * @param y coordinate y (increases downwards)
+     */
     //% block="toggle pixel at x $x y $y"
     //% weight=96
     export function togglePx(x: number, y: number): void {
@@ -136,6 +144,12 @@ namespace OLED {
             screen[index] = (!px(x, y)) ? showbit(screen[index], (y % 8)) : hidebit(screen[index], (y % 8))
         }
     }
+    /**
+     * Returns color of pixel at x y in buffer.
+     * @param x coordinate x (increases towards the right)
+     * @param y coordinate y (increases downwards)
+     * @returns color of pixel at x y
+     */
     //% block="pixel at x $x y $y"
     //% weight=95
     export function px(x: number, y: number): boolean {
