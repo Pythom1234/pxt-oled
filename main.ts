@@ -104,6 +104,10 @@ namespace OLED {
     export function clear(color: boolean): void {
         screen.fill((color) ? 0xFF : 0)
     }
+    /*
+     * Sends buffer to OLED display.
+     * This command must be called whenever you want to show something on the OLED display.
+     */
     //% block="draw"
     //% weight=98
     export function draw(): void {
@@ -111,6 +115,10 @@ namespace OLED {
         screen[0] = 0x40
         pins.i2cWriteBuffer(ADDR, screen, false)
     }
+    /*
+     * Sets pixel at ``x`` ``y`` to color ``color``.
+     * Must be called ``draw`` to show changes.
+     */
     //% block="set pixel at x $x y $y to $color"
     //% color.defl=true
     //% weight=97
