@@ -148,7 +148,6 @@ namespace OLED {
      * Returns color of pixel at x y in buffer.
      * @param x coordinate x (increases towards the right)
      * @param y coordinate y (increases downwards)
-     * @returns color of pixel at x y
      */
     //% block="pixel at x $x y $y"
     //% weight=95
@@ -160,6 +159,10 @@ namespace OLED {
             return false
         }
     }
+    /**
+     * Draws text with upper left corner at x y.
+     * Text has fixed width (8 px).
+     * @param text text to draw ()
     //% block="draw text $text at|x $x|y $y|color $color|toggle $toggle"
     //% color.defl=true
     //% toggle.defl=false
