@@ -59,6 +59,8 @@ namespace OLED {
     //% block="init OLED display"
     //% weight=101
     export function init(): void {
+        screen = pins.createBuffer(1025)
+        console.log(screen)
         cmd1(0xAE)
         cmd1(0xA4)
         cmd2(0xD5, 0xF0)
