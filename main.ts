@@ -1,15 +1,23 @@
+/**
+ * MakeCode extension for controlling OLED display using BBC micro:bit.
+ * License: MIT
+ * Maintainer: Pythom1234
+ * https://github.com/Pythom1234/pxt-oled
+ */
 
 //% icon="\uf26c" color=#0000ff
 namespace OLED {
     const ADDR = 0x3C
     let screen = pins.createBuffer(1025)
 
+    // From microbit/micropython Chinese community
     function cmd1(cmd1: number): void {
         let buffer = pins.createBuffer(2)
         buffer[0] = 0x00
         buffer[1] = cmd1
         pins.i2cWriteBuffer(ADDR, buffer)
     }
+    // From microbit/micropython Chinese community
     function cmd2(cmd1: number, cmd2: number): void {
         let buffer = pins.createBuffer(3)
         buffer[0] = 0x00
@@ -17,6 +25,7 @@ namespace OLED {
         buffer[2] = cmd2
         pins.i2cWriteBuffer(ADDR, buffer)
     }
+    // From microbit/micropython Chinese community
     function cmd3(cmd1: number, cmd2: number, cmd3: number): void {
         let buffer = pins.createBuffer(4)
         buffer[0] = 0x00
