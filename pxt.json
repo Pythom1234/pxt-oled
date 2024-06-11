@@ -1,6 +1,6 @@
 {
     "name": "OLED",
-    "version": "2.2.2",
+    "version": "2.2.3",
     "description": "Extension for controlling OLED display",
     "license": "MIT",
     "dependencies": {
