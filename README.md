@@ -9,67 +9,67 @@ Extension for control [SSD1306 OLED display 128×64](https://www.elecfreaks.com/
 
 
 ```block
-OLED.init()
+oled.init()
 ```
 Initalize OLED display connected at address 60 (0x3C) on I2C. Must be called when the program starts.
 
 
 ```block
-OLED.setContrast(255)
+oled.setContrast(255)
 ```
 Sets contrast of display (0 to 255).
 
 
 ```block
-OLED.clear(false)
+oled.clear(false)
 ```
 Fills the display with <ins>***color***</ins>.
 
 
 ```block
-OLED.draw()
+oled.draw()
 ```
 Sends data to the OLED display. You have to call it whenever you want to update the display.
 
 
 ```block
-OLED.setPx(0, 0, true)
+oled.setPx(0, 0, true)
 ```
 Sets the pixel color at position <ins>***x***</ins> <ins>***y***</ins> to <ins>***color***</ins>.
 
 
 ```block
-OLED.togglePx(0, 0)
+oled.togglePx(0, 0)
 ```
 Toggles the pixel color at position <ins>***x***</ins> <ins>***y***</ins>.
 
 
 ```block
-OLED.px(0, 0)
+oled.px(0, 0)
 ```
 Returns the pixel color at position <ins>***x***</ins> <ins>***y***</ins>.
 
 
 ```block
-OLED.drawText("text", 0, 0, true, false)
+oled.drawText("text", 0, 0, true, false)
 ```
 Draws the text <ins>***text***</ins>, which has the upper left corner at position <ins>***x***</ins> <ins>***y***</ins>. The color of the text is determined by <ins>***color***</ins>.
 
 
 ```block
-OLED.drawRect(0, 0, 10, 10, true, false, false)
+oled.drawRect(0, 0, 10, 10, true, false, false)
 ```
 Draws a rectangle with the upper left vertex at position <ins>***x1***</ins> <ins>***y1***</ins> and the lower right vertex at position <ins>***x2***</ins> <ins>***y2***</ins>. The <ins>***fill***</ins> option specifies whether the rectangle will be filled with the <ins>***color***</ins> color. If `false`, then only the outline is drawn.
 
 
 ```block
-OLED.drawLine(0, 0, 10, 10, true, false)
+oled.drawLine(0, 0, 10, 10, true, false)
 ```
 Draws a line from position <ins>***x1***</ins> <ins>***y1***</ins> to position <ins>***x2***</ins> <ins>***y2***.
 
 
 ```block
-OLED.drawImage(null, 0, 0, true, false, false)
+oled.drawImage(null, 0, 0, true, false, false)
 ```
 Show <ins>***image***</ins> of type Image at position <ins>***x***</ins> <ins>***y***</ins>. Fields filled in white in the image are drawn in <ins>***color***</ins> on the OLED display. The <ins>***background***</ins> determines whether fields that are not filled with white are also drawn. You can add image from the **_Images_** category or import **_Imageio_** library: [https://github.com/Pythom1234/pxt-imageio](https://github.com/Pythom1234/pxt-imageio)
 
