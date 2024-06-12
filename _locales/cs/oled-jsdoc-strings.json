@@ -1,5 +1,9 @@
 {
   "oled": "Rozšíření MakeCode pro ovládání OLED displeje.\nLicence: MIT\nSprávce: Pythom1234\nhttps://github.com/Pythom1234/pxt-oled",
+  "oled.addChar": "Přidat znak pro funkci `draw text`.\nNapříklad když zavoláte `přidat znak \"_\"` a potom `nakreslit text \"a_b\"`, tak se nejdříve vypíše \"a\", potom Váš definovaný znak a potom \"b\".\nPřetáhněte blok `obrázek znaku` ze stejné kategorie do pole `image`.",
+  "oled.addChar|param|char": "znak",
+  "oled.addChar|param|image": "obrázek znaku pro přidání do vlastní sady znaků",
+  "oled.charImage": "Vytvořit obrázek pro blok `přidat znak`.",
   "oled.clear": "Vyplní displej vybranou barvou.\nMusíte zavolat funkci `draw`, aby se změny projevily.",
   "oled.clear|param|color": "barva výplně (většinou `false`)",
   "oled.draw": "Pošle buffer do OLED displeje.\nTato funkce musí být zavolána vždy, když chcete něco zobrazit na displeji.",

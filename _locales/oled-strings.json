@@ -1,4 +1,6 @@
 {
+  "oled.addChar|block": "add character $char $image",
+  "oled.charImage|block": "character image",
   "oled.clear|block": "clear $color",
   "oled.drawImage|block": "show image|$image|x $x|y $y|color $color|background $bg|toggle $toggle",
   "oled.drawLine|block": "draw line from|x $x1|y $y1|to|x $x2|y $y2|color $color|toggle $toggle",
