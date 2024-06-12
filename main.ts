@@ -386,17 +386,19 @@ namespace oled {
     //% toggle.defl=false
     //% weight=91
     export function drawImage(image: Image, x: number, y: number, color: boolean, bg: boolean, toggle: boolean): void {
-        for (let img_x = 0; img_x < image.width(); img_x++) {
-            for (let img_y = 0; img_y < image.height(); img_y++) {
-                let c = image.pixel(img_x, img_y)
-                if ((bg && !c) || (c)) {
-                    if (!color) {
-                        c = !c
-                    }
-                    if (toggle) {
-                        togglePx(x + img_x, y + img_y)
-                    } else {
-                        setPx(x + img_x, y + img_y, c)
+        if ((image != null) && (image != undefined)) {
+            for (let img_x = 0; img_x < image.width(); img_x++) {
+                for (let img_y = 0; img_y < image.height(); img_y++) {
+                    let c = image.pixel(img_x, img_y)
+                    if ((bg && !c) || (c)) {
+                        if (!color) {
+                            c = !c
+                        }
+                        if (toggle) {
+                            togglePx(x + img_x, y + img_y)
+                        } else {
+                            setPx(x + img_x, y + img_y, c)
+                        }
                     }
                 }
             }
