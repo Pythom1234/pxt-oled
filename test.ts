@@ -22,7 +22,7 @@ OLED.drawLine(0, 28, 72, 20, false, false)
 OLED.draw()
 basic.pause(500)
 // draw image
-OLED.drawImage(imageio.createImage5x5(`
+OLED.drawImage(images.createImage(`
 . . . . .
 . # . # .
 . . # . .
