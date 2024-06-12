@@ -1,5 +1,9 @@
 {
   "oled": "MakeCode extension for controlling OLED display using BBC micro:bit.\nLicense: MIT\nMaintainer: Pythom1234\nhttps://github.com/Pythom1234/pxt-oled",
+  "oled.addChar": "Add character for function `draw text`.\nFor example, if you add character \"_\" and call `draw text \"a_b\"`, it will draw \"a\", then your custom character, then \"b\".\nDrag `character image` from the same category into field `image`.",
+  "oled.addChar|param|char": "character name",
+  "oled.addChar|param|image": "character image to add to custom charset",
+  "oled.charImage": "Create image for `add character` function.",
   "oled.clear": "Fills the display buffer with specified color.\nYou need to call `draw` to see the changes.",
   "oled.clear|param|color": "filling color (usually `false`)",
   "oled.draw": "Sends buffer to OLED display.\nThis command must be called whenever you want to show something on the OLED display.",

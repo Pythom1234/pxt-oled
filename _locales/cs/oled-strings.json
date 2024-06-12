@@ -1,9 +1,11 @@
 {
+  "oled.addChar|block": "přidat znak $char $image",
+  "oled.charImage|block": "obrázek znaku",
   "oled.clear|block": "vymazat barvou $color",
   "oled.drawImage|block": "ukázat obrázek|$image|x $x|y $y|barva $color|překreslit pozadí $bg|přepnout $toggle",
   "oled.drawLine|block": "nakreslit čáru z|x $x1|y $y1|na|x $x2|y $y2|barva $color|přepnout $toggle",
   "oled.drawRect|block": "nakreslit čtyřúhelník|x1 $x1|y1 $y1|x2 $x2|y2 $y2|barva $color|vyplnit $fill|přepnout $toggle",
-  "oled.drawText|block": "přidat text $text na|x $x|y $y|barva $color|přepnout $toggle",
+  "oled.drawText|block": "nakreslit text $text na|x $x|y $y|barva $color|přepnout $toggle",
   "oled.draw|block": "vykreslit",
   "oled.init|block": "inicializovat OLED displej",
   "oled.px|block": "pixel na pozici x $x y $y",
