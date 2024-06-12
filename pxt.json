@@ -1,6 +1,6 @@
 {
     "name": "oled",
-    "version": "2.2.7",
+    "version": "2.3.0",
     "description": "Extension for controlling SSD1306 OLED display 128×64",
     "license": "MIT",
     "dependencies": {
