@@ -6,16 +6,12 @@ for (let i = 0; i < 20; i++) {
 }
 // show changes
 oled.draw()
-// draw text "some text"
-oled.drawText("some text", 0, 20, true, false)
-// show changes
-oled.draw()
 // draw a rectangle across the screen (like when you invert the screen)
 oled.drawRect(0, 0, 127, 64, true, true, true)
 // show changes
 oled.draw()
 basic.pause(500)
-// strike out text
+// draw cross
 oled.drawLine(0, 20, 72, 28, false, false)
 oled.drawLine(0, 28, 72, 20, false, false)
 // show changes
