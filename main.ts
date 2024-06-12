@@ -6,7 +6,7 @@
  */
 
 //% icon="\uf26c" color=#0000ff
-namespace OLED {
+namespace oled {
     const ADDR = 0x3C
     let screen = pins.createBuffer(1025)
 

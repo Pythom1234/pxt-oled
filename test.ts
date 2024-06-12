@@ -1,28 +1,28 @@
-// initialize OLED display
-OLED.init()
+// initialize oled display
+oled.init()
 // make line (float position is allowed, it will be rounded)
 for (let i = 0; i < 20; i++) {
-    OLED.setPx(i, i / 2, true)
+    oled.setPx(i, i / 2, true)
 }
 // show changes
-OLED.draw()
+oled.draw()
 // draw text "some text"
-OLED.drawText("some text", 0, 20, true, false)
+oled.drawText("some text", 0, 20, true, false)
 // show changes
-OLED.draw()
+oled.draw()
 // draw a rectangle across the screen (like when you invert the screen)
-OLED.drawRect(0, 0, 127, 64, true, true, true)
+oled.drawRect(0, 0, 127, 64, true, true, true)
 // show changes
-OLED.draw()
+oled.draw()
 basic.pause(500)
 // strike out text
-OLED.drawLine(0, 20, 72, 28, false, false)
-OLED.drawLine(0, 28, 72, 20, false, false)
+oled.drawLine(0, 20, 72, 28, false, false)
+oled.drawLine(0, 28, 72, 20, false, false)
 // show changes
-OLED.draw()
+oled.draw()
 basic.pause(500)
 // draw image
-OLED.drawImage(images.createImage(`
+oled.drawImage(images.createImage(`
 . . . . .
 . # . # .
 . . # . .
@@ -30,4 +30,4 @@ OLED.drawImage(images.createImage(`
 . . . . .
 `), 50, 50, true, true, false)
 // show changes
-OLED.draw()
+oled.draw()
