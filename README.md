@@ -71,7 +71,7 @@ Draws a line from position <ins>***x1***</ins> <ins>***y1***</ins> to position <
 ```block
 OLED.drawImage(null, 0, 0, true, false, false)
 ```
-Show <ins>***image***</ins> of type Image at position <ins>***x***</ins> <ins>***y***</ins>. Fields filled in white in the image are drawn in <ins>***color***</ins> on the OLED display. The <ins>***background***</ins> determines whether fields that are not filled with white are also drawn. The **_Imageio_** library is useful for this command: [https://github.com/Pythom1234/pxt-imageio](https://github.com/Pythom1234/pxt-imageio)
+Show <ins>***image***</ins> of type Image at position <ins>***x***</ins> <ins>***y***</ins>. Fields filled in white in the image are drawn in <ins>***color***</ins> on the OLED display. The <ins>***background***</ins> determines whether fields that are not filled with white are also drawn. You can add image from the **_Images_** category or import **_Imageio_** library: [https://github.com/Pythom1234/pxt-imageio](https://github.com/Pythom1234/pxt-imageio)
 
 ## Examples
 I also made a extension that uses OLED display (it's is still in development): [https://github.com/Pythom1234/pxt-games](https://github.com/Pythom1234/pxt-games)
