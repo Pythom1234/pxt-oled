@@ -9,8 +9,8 @@
     "files": [
         "main.ts",
         "README.md",
-        "_locales/cs/OLED-jsdoc-strings.json",
-        "_locales/cs/OLED-strings.json"
+        "_locales/cs/oled-jsdoc-strings.json",
+        "_locales/cs/oled-strings.json"
     ],
     "testFiles": [
         "test.ts"
