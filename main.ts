@@ -5,7 +5,7 @@
  * https://github.com/Pythom1234/pxt-oled
  */
 
-//% icon="\uf26c" color=#0000ff
+//% icon="\uf26c" color=#0000ff block="OLED"
 namespace oled {
     const ADDR = 0x3C
     let screen = pins.createBuffer(1025)
