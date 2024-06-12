@@ -9,6 +9,8 @@
 namespace oled {
     const ADDR = 0x3C
     let screen = pins.createBuffer(1025)
+    let charset: string[] = []
+    let charsetIndex: string[] = []
 
     // From microbit/micropython Chinese community
     function cmd1(cmd1: number): void {
@@ -258,27 +260,32 @@ namespace oled {
 
         const fontIndex = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ', ',', '?', '.', '!', '<', '>', '/', ':', '*', '-', '+', '=']
 
-        function getFont(index: number): Array<Array<number>> {
-            let out: Array<Array<number>> = []
-            for (const tuple of font[index].split(' ')) {
-                const add = tuple.split(',')
-                out.push([parseInt(add[0]), parseInt(add[1])])
+        function getChar(char: string): number[][] {
+            let out: number[][] = []
+            if (charsetIndex.indexOf(char) != -1) {
+                for (const tuple of charset[charsetIndex.indexOf(char)].split(' ')) {
+                    const add = tuple.split(',')
+                    out.push([parseInt(add[0]), parseInt(add[1])])
+                }
+            } else if (fontIndex.indexOf(char) != -1) {
+                for (const tuple of font[fontIndex.indexOf(char)].split(' ')) {
+                    const add = tuple.split(',')
+                    out.push([parseInt(add[0]), parseInt(add[1])])
+                }
             }
             return out
         }
 
         let iteration = 0
         for (const letter of text) {
-            if (fontIndex.some(l => l === letter)) {
-                for (const pos of getFont(fontIndex.indexOf(letter))) {
-                    if (toggle) {
-                        togglePx(x + pos[0] + (iteration * 8), y + pos[1])
-                    } else {
-                        setPx(x + pos[0] + (iteration * 8), y + pos[1], color)
-                    }
+            for (const pos of getChar(letter)) {
+                if (toggle) {
+                    togglePx(x + pos[0] + (iteration * 8), y + pos[1])
+                } else {
+                    setPx(x + pos[0] + (iteration * 8), y + pos[1], color)
                 }
-                iteration++
             }
+            iteration++
         }
     }
     /**
@@ -403,5 +410,44 @@ namespace oled {
                 }
             }
         }
+    }
+    /**
+     * Add character for function `draw text`.
+     * For example, if you add character "_" and call `draw text "a_b"`, it will draw "a", then your custom character, then "b".
+     * Drag `character image` from the same category into field `image`.
+     * @param image character image to add to custom charset
+     * @param char character name
+     */
+    //% block="add character $char $image"
+    //% advanced=true
+    //% weight=100
+    export function addChar(image: Image, char: string): void {
+        if (char != "" && image != null && image != undefined) {
+            char = char[0]
+            let compressedChar = ""
+            for (let x = 0; x < 8; x++) {
+                for (let y = 0; y < 10; y++) {
+                    if (image.pixel(x, y)) {
+                        if (!(compressedChar == "")) {
+                            compressedChar += " "
+                        }
+                        compressedChar += x.toString() + "," + y.toString()
+                    }
+                }
+            }
+            charset.push(compressedChar)
+            charsetIndex.push(char)
+        }
+    }
+    /**
+     * Create image for `add character` function.
+     */
+    //% block="character image"
+    //% advanced=true
+    //% weight=99
+    //% shim=images::createImage
+    //% imageLiteral=1 imageLiteralRows=10 imageLiteralColumns=8
+    export function charImage(leds: string): Image {
+        return <Image><any>leds
     }
 }
