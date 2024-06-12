@@ -4,8 +4,7 @@
     "description": "Extension for controlling OLED display",
     "license": "MIT",
     "dependencies": {
-        "core": "*",
-        "imageio": "github:Pythom1234/pxt-imageio"
+        "core": "*"
     },
     "files": [
         "main.ts",
