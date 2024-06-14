@@ -64,7 +64,6 @@ namespace oled {
     //% weight=101
     export function init(): void {
         screen = pins.createBuffer(1025)
-        console.log(screen)
         cmd1(0xAE)
         cmd1(0xA4)
         cmd2(0xD5, 0xF0)
@@ -392,6 +391,7 @@ namespace oled {
     //% bg.defl=false
     //% toggle.defl=false
     //% weight=91
+    //% advanced=true
     export function drawImage(image: Image, x: number, y: number, color: boolean, bg: boolean, toggle: boolean): void {
         if ((image != null) && (image != undefined)) {
             for (let img_x = 0; img_x < image.width(); img_x++) {
