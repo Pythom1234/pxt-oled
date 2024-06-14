@@ -390,7 +390,7 @@ namespace oled {
     //% color.defl=true
     //% bg.defl=false
     //% toggle.defl=false
-    //% weight=91
+    //% weight=100
     //% advanced=true
     export function drawImage(image: Image, x: number, y: number, color: boolean, bg: boolean, toggle: boolean): void {
         if ((image != null) && (image != undefined)) {
@@ -420,7 +420,7 @@ namespace oled {
      */
     //% block="add character $char $image"
     //% advanced=true
-    //% weight=100
+    //% weight=99
     export function addChar(image: Image, char: string): void {
         if (char != "" && image != null && image != undefined) {
             char = char[0]
@@ -444,7 +444,7 @@ namespace oled {
      */
     //% block="character image"
     //% advanced=true
-    //% weight=99
+    //% weight=98
     //% shim=images::createImage
     //% imageLiteral=1 imageLiteralRows=10 imageLiteralColumns=8
     export function charImage(leds: string): Image {
