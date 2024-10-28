@@ -37,7 +37,7 @@ namespace oled {
         pins.i2cWriteBuffer(ADDR, buffer)
     }
     function setPos(col: number = 0, page: number = 0) {
-        pins.i2cWriteNumber(ADDR, (0xb0 | page) % 256, NumberFormat.UInt16BE);
+        pins.i2cWriteNumber(ADDR, (0xB0 | page) % 256, NumberFormat.UInt16BE);
         pins.i2cWriteNumber(ADDR, (0x00 | (col % 16)) % 256, NumberFormat.UInt16BE);
         pins.i2cWriteNumber(ADDR, (0x10 | (col >> 4)) % 256, NumberFormat.UInt16BE);
     }
@@ -69,19 +69,19 @@ namespace oled {
         cmd2(0xD5, 0xF0)
         cmd2(0xA8, 0x3F)
         cmd2(0xD3, 0x00)
-        cmd1(0 | 0x0)
+        cmd1(0x0)
         cmd2(0x8D, 0x14)
         cmd2(0x20, 0x00)
-        cmd3(0x21, 0, 127)
-        cmd3(0x22, 0, 63)
+        cmd3(0x21, 0x0, 0x7F)
+        cmd3(0x22, 0x0, 0x3F)
         cmd1(0xa0 | 0x1)
-        cmd1(0xc8)
+        cmd1(0xC8)
         cmd2(0xDA, 0x12)
         cmd2(0x81, 0xFF)
-        cmd2(0xd9, 0xF1)
+        cmd2(0xD9, 0xF1)
         cmd2(0xDB, 0x40)
         cmd1(0xA6)
-        cmd2(0xD6, 0)
+        cmd2(0xD6, 0x0)
         cmd1(0xAF)
         clear(false)
         draw()
@@ -328,6 +328,20 @@ namespace oled {
                     togglePx(x1, y)
                 } else {
                     setPx(x1, y, color)
+                }
+            }
+            for (let x = x1; x <= x2; x++) {
+                if (toggle) {
+                    togglePx(x, y2)
+                } else {
+                    setPx(x, y2, color)
+                }
+            }
+            for (let y = y1 + 1; y < y2; y++) {
+                if (toggle) {
+                    togglePx(x2, y)
+                } else {
+                    setPx(x2, y, color)
                 }
             }
         }
