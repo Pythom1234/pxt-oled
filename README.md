@@ -95,7 +95,8 @@ oled.addChar(oled.charImage(`
 `), "c")
 ```
 **oled.addChar**: Add character <ins>***char***</ins> for function ```oled.drawText()```. The character is specified by <ins>***image***</ins>.
-**oled.charImage**: Make image for ```oled.addChar()```. It's 8 pixels wide and 10 pixels high. 
+
+**oled.charImage**: Make image for ```oled.addChar()```. It's 8 pixels wide and 11 pixels high. 
 
 ## Examples
 I also made a extension that uses OLED display (it's is still in development): [https://github.com/Pythom1234/pxt-games](https://github.com/Pythom1234/pxt-games)
