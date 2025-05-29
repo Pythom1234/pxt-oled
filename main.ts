@@ -305,7 +305,7 @@ namespace oled {
                     }
                 }
             }
-            control.waitMicros(1)
+            basic.pause(1)
         }
     }
     /**
@@ -421,7 +421,7 @@ namespace oled {
      * @param bg sets whether empty pixels of the image are drawn (drawn with `not color`)
      * @param toggle sets whether to use pixel switching instead of setting the pixel to a specific color (if `true`, `color` means nothing)
      */
-    //% block="show image|$image|x $x|y $y|color $color|background $bg|toggle $toggle"
+    //% block="draw image|$image|x $x|y $y|color $color|background $bg|toggle $toggle"
     //% color.defl=true
     //% bg.defl=false
     //% toggle.defl=false
@@ -443,7 +443,7 @@ namespace oled {
                         }
                     }
                 }
-                control.waitMicros(1)
+                basic.pause(1)
             }
         }
     }
@@ -465,7 +465,7 @@ namespace oled {
                 let tmp = 0x00
                 for (let x = 0; x < 8; x++) {
                     if (image.pixel(x, y)) {
-                        tmp |= 0x01 << (8 - x)
+                        tmp |= 0x01 << (7 - x)
                     }
                 }
                 compressedChar.push(tmp)
