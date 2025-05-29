@@ -2,7 +2,7 @@
   "oled.addChar|block": "add character $char $image",
   "oled.charImage|block": "character image",
   "oled.clear|block": "clear $color",
-  "oled.drawImage|block": "show image|$image|x $x|y $y|color $color|background $bg|toggle $toggle",
+  "oled.drawImage|block": "draw image|$image|x $x|y $y|color $color|background $bg|toggle $toggle",
   "oled.drawLine|block": "draw line from|x $x1|y $y1|to|x $x2|y $y2|color $color|toggle $toggle",
   "oled.drawRect|block": "draw rect at|x1 $x1|y1 $y1|x2 $x2|y2 $y2|color $color|fill $fill|toggle $toggle",
   "oled.drawText|block": "draw text $text at|x $x|y $y|color $color|toggle $toggle",
