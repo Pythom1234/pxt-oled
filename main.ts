@@ -292,7 +292,7 @@ namespace oled {
                         }
                     }
                 }
-            } else {
+            } else if (text[i].charCodeAt(0) < 128 && text[i].charCodeAt(0) >= 32) {
                 for (let j = 0; j < 11; j++) {
                     for (let k = 0; k < 8; k++) {
                         if (font[text[i].charCodeAt(0) - 32][j] & (0x01 << k)) {
@@ -304,6 +304,7 @@ namespace oled {
                         }
                     }
                 }
+            } else {
             }
             basic.pause(1)
         }
